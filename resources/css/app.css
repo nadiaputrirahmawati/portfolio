@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* resources/css/app.css */
+
+
+* {
+  font-family: "Onest", sans-serif;
+}
+
+.text-green {
+    color: #4d563a;
+}
+.bg-green {
+    background-color: #4d563a;
+}
+
+.text-green-light {
+    color: #818d65;
+}
+
+.bg-yellow {
+    background-color: #fafafa;
+}
+
+.bg-hero {
+    background-color: #f5f0d4;
+}
+
+.bg-green-light {
+    background-color: #818d65;
+}
+
+.bg-green-light-transparan{
+    background-color: #656e5153;
+}
+
+.bg-primary {
+    background-color: #e3eaf8;
+}
+
+.bg-primary-transparent {
+    background-color: #4071ac17;
+}
+
+.bg-primary-text {
+    background-color: #261d56;
+}

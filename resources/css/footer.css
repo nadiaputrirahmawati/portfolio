@@ -1,0 +1,7 @@
+.footer-box {
+  --mask:
+    radial-gradient(41.18px at 50% 56px,#000 99%,#0000 101%) calc(50% - 40px) 0/80px 100%,
+    radial-gradient(41.18px at 50% -36px,#0000 99%,#000 101%) 50% 20px/80px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
