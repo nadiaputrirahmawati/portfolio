@@ -6,7 +6,7 @@ import { LiaLaravel, LiaReact } from "vue-icons-plus/lia";
 
 <template>
   <section
-    class="flex flex-col-reverse md:flex-row items-center justify-between bg-hero px-4 md:px-16 lg:px-16 xl:px-44 hero-box"
+    class="flex flex-col-reverse md:flex-row items-center justify-between bg-hero px-4 sm:px-7 md:px-4 lg:px-16 xl:px-44 hero-box"
   >
     <!-- Left Content (Text) -->
     <div class="text-center md:text-left max-w-xl mt-3 sm:mt-0 md:mt-10 xl:mt-32">

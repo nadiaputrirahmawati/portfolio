@@ -46,17 +46,24 @@ const allStacks = Object.keys(STACKS);
 
                 <div class="bg-yellow rounded-xl p-4 mt-3 stamp">
                     <h3 class="font-bold text-green">Education</h3>
-                    <p>Universitas Muhammadiyah Sukabumi</p>
-                    <p class="text-sm text-gray-600">
-                        Teknik Informatika (2022–2025)
-                    </p>
+                    <div class="flex space-x-3">
+                        <div class="w-3/12">
+                            <img src="/project/ummi.png" alt="" />
+                        </div>
+                        <div>
+                            <p>Universitas Muhammadiyah Sukabumi</p>
+                            <p class="text-sm text-gray-600">
+                                Teknik Informatika (2022–2025)
+                            </p>
+                        </div>
+                    </div>
                     <h3 class="mt-4 font-bold">Country</h3>
                     <p>Indonesia</p>
                 </div>
             </div>
 
             <!-- Right: Featured Work -->
-            <div class="md:col-span-2 rounded-3xl lg:w-8/12 xl:w-8/12 h-full">
+            <div class="md:col-span-2 rounded-3xl w-8/12 lg:w-8/12 xl:w-8/12 h-full">
                 <!-- Header -->
                 <div class="flex">
                     <div
@@ -133,7 +140,7 @@ const allStacks = Object.keys(STACKS);
                         </div>
                         <!-- Bagian Skills -->
                         <div
-                            class="bg-green-light rounded-3xl p-6 lg:w-8/12 lg:mt-0 mt-5"
+                            class="bg-green-light rounded-3xl p-6 w-8/12 lg:w-8/12 lg:mt-0 mt-5"
                         >
                             <!-- Baris 1 -->
                             <div class="relative w-full overflow-hidden mb-4">
@@ -152,7 +159,9 @@ const allStacks = Object.keys(STACKS);
                                             :class="STACKS[allStacks].color"
                                             :title="allStacks"
                                         />
-                                        <span  class="text-sm font-medium" > {{ allStacks }}</span>
+                                        <span class="text-sm font-medium">
+                                            {{ allStacks }}</span
+                                        >
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +185,9 @@ const allStacks = Object.keys(STACKS);
                                             :class="STACKS[allStacks].color"
                                             :title="allStacks"
                                         />
-                                        <span  class="text-sm font-medium" > {{ allStacks }}</span>
+                                        <span class="text-sm font-medium">
+                                            {{ allStacks }}</span
+                                        >
                                     </div>
                                 </div>
                             </div>
@@ -357,4 +368,3 @@ const allStacks = Object.keys(STACKS);
         </div>
     </section>
 </template>
-

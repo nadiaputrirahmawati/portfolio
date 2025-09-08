@@ -41,7 +41,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                 <h1 class="text-center text-2xl p-4">Contact Person</h1>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div
-                        class="relative rounded-2xl px-5 py-3 h-36 bg-gradient-to-b from-purple-500 via-pink-500 to-orange-400 shadow-lg overflow-hidden"
+                        class="relative rounded-2xl w-96 sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-purple-500 via-pink-500 to-orange-400 shadow-lg overflow-hidden"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -64,7 +64,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                                 </a>
                             </div>
                             <div
-                                class="w-3/12 relative left-5 -bottom-14 xl:left-44 xl:-bottom-10"
+                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-24 -bottom-10 xl:left-44 xl:-bottom-10"
                             >
                                 <h1>
                                     <LuInstagram class="text-white w-14 h-14" />
@@ -82,7 +82,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl px-5 py-3 h-36 bg-gradient-to-r from-[#106da1] via-[#056398] to-[#056398] shadow-lg overflow-hidden"
+                        class="relative rounded-2xl w-96 sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-r from-[#106da1] via-[#056398] to-[#056398] shadow-lg overflow-hidden"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -105,7 +105,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                                 </a>
                             </div>
                             <div
-                                class="w-3/12 relative left-5 -bottom-14 xl:left-40 xl:-bottom-10"
+                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-20 -bottom-10 xl:left-36 xl:-bottom-10"
                             >
                                 <h1>
                                     <SiLinkedin class="text-white w-14 h-14" />
@@ -123,7 +123,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl px-5 py-3 h-36 bg-gradient-to-b from-[#0c1326] to-[#464e64] shadow-lg overflow-hidden"
+                        class="relative rounded-2xl px-5 py-3 h-36 w-96 sm:w-96 md:w-full lg:w-full x:w-full bg-gradient-to-b from-[#0c1326] to-[#464e64] shadow-lg overflow-hidden"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -146,7 +146,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                                 </a>
                             </div>
                             <div
-                                class="w-3/12 relative left-5 -bottom-14 xl:left-44 xl:-bottom-10"
+                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-24 -bottom-10 xl:left-44 xl:-bottom-10"
                             >
                                 <h1>
                                     <LiaGithub class="text-white w-14 h-14" />
@@ -164,7 +164,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl px-5 py-3 h-36 bg-gradient-to-b from-red-800 to-red-600 shadow-lg overflow-hidden"
+                        class="relative rounded-2xl w-96 sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-red-800 to-red-600 shadow-lg overflow-hidden"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -187,7 +187,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                                 </a>
                             </div>
                             <div
-                                class="w-3/12 relative left-5 -bottom-14 xl:left-44 xl:-bottom-10"
+                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-24 -bottom-10 xl:left-44 xl:-bottom-10"
                             >
                                 <h1>
                                     <LiaEnvelopeSolid
