@@ -46,17 +46,12 @@ const allStacks = Object.keys(STACKS);
 
                 <div class="bg-yellow rounded-xl p-4 mt-3 stamp">
                     <h3 class="font-bold text-green">Education</h3>
-                    <div class="flex space-x-3">
-                        <div class="w-3/12">
-                            <img src="/project/ummi.png" alt="" />
-                        </div>
                         <div>
                             <p>Universitas Muhammadiyah Sukabumi</p>
                             <p class="text-sm text-gray-600">
                                 Teknik Informatika (2022–2025)
                             </p>
                         </div>
-                    </div>
                     <h3 class="mt-4 font-bold">Country</h3>
                     <p>Indonesia</p>
                 </div>
@@ -67,7 +62,7 @@ const allStacks = Object.keys(STACKS);
                 <!-- Header -->
                 <div class="flex">
                     <div
-                        class="bg-yellow rounded-t-3xl px-4 py-2 md:w-96 lg:w-96 xl:w-96 rounded-tab"
+                        class="bg-hero rounded-t-3xl px-4 py-2 md:w-96 lg:w-96 xl:w-96 rounded-tab"
                     >
                         <h2
                             class="font-semibold tracking-wide text-lg py-1 px-6 text-green"
@@ -92,7 +87,7 @@ const allStacks = Object.keys(STACKS);
 
                 <!-- Content -->
                 <div
-                    class="bg-yellow p-7 rounded-tr-3xl rounded-b-3xl shadow-lg"
+                    class="bg-hero p-7 rounded-tr-3xl rounded-b-3xl shadow-lg"
                 >
                     <div
                         class="flex flex-col md:flex-row space-x-0 lg:space-x-5 mb-6"
