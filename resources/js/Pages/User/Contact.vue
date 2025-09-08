@@ -9,14 +9,14 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
 </script>
 
 <template>
-    <section class="px-4 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest mb-10">
+    <section class="px-5 md:px-1 lg:px-16 xl:px-32 mt-16 font-onest mb-10">
         <div class="flex space-x-4 px-6 mt-5">
             <LuContact2 class="w-7 h-7" />
             <h1 class="text-2xl font-normal">Contact</h1>
         </div>
         <p class="text-gray-500 text-xl px-6">Let`s get in touch</p>
-        <div class="flex flex-col md:flex-row gap-4 mt-5">
-            <div class="lg:w-8/12 xl:w-1/12 md:4/12 sm:w-full bg-hero wavy-box">
+        <div class="flex flex-col lg:flex-row gap-4 mt-5">
+            <div class="w-full lg:3/12 bg-hero shadow-lg shadow-gray-300 shadow-opacity-20">
                 <h1 class="text-center text-xl p-4">Send Me A Message</h1>
                 <div class="p-4">
                     <form action="" method="post">
@@ -32,16 +32,16 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         />
                         <textarea class="w-full bg-transparent border-b-2 border-green-light" placeholder="Message"></textarea>
                         <div class="flex justify-center">
-                            <button class="px-32 py-2 mt-3 rounded-full bg-green-light text-white">Send</button>
+                            <button class="py-2 mt-3 rounded-full bg-green-light text-white">Send</button>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="w-7/12 sm:w-full md:4/12 lg:w-7/12 xl:w-8/12">
+            <div class="w-full lg:9/12">
                 <h1 class="text-center text-2xl p-4">Contact Person</h1>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div
-                        class="relative rounded-2xl w-96 sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-purple-500 via-pink-500 to-orange-400 shadow-lg overflow-hidden"
+                        class="relative rounded-2xl w-full sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-purple-500 via-pink-500 to-orange-400 shadow-lg overflow-hidden"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -82,7 +82,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl w-96 sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-r from-[#106da1] via-[#056398] to-[#056398] shadow-lg overflow-hidden"
+                        class="relative rounded-2xl  w-full sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-r from-[#106da1] via-[#056398] to-[#056398] shadow-lg overflow-hidden"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -123,7 +123,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl px-5 py-3 h-36 w-96 sm:w-96 md:w-full lg:w-full x:w-full bg-gradient-to-b from-[#0c1326] to-[#464e64] shadow-lg overflow-hidden"
+                        class="relative rounded-2xl px-5 py-3 h-36  w-full sm:w-96 md:w-full lg:w-full x:w-full bg-gradient-to-b from-[#0c1326] to-[#464e64] shadow-lg overflow-hidden"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -164,7 +164,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl w-96 sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-red-800 to-red-600 shadow-lg overflow-hidden"
+                        class="relative rounded-2xl  w-full sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-red-800 to-red-600 shadow-lg overflow-hidden"
                     >
                         <!-- Bagian Teks -->
                         <div

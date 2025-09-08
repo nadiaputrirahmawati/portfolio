@@ -23,7 +23,7 @@ const scrollTo = (id) => {
 <template>
   <footer class="bg-hero border-t border-gray-200 mt-20 footer-box">
     <div
-      class="max-w-7xl mx-auto px-6 lg:px-16 py-10 grid grid-cols-1 md:grid-cols-3 gap-10 mt-4"
+      class="px-6 lg:px-16 py-10 grid grid-cols-1 md:grid-cols-3 gap-10 mt-4"
     >
       <!-- Brand -->
       <div>

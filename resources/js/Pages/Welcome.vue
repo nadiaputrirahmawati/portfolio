@@ -14,7 +14,7 @@ import Footer from "@/Assets/Footer.vue";
         <NavbarUuser />
 
         <!-- Hero Section -->
-        <section id="home">
+        <section id="home" class="">
             <HeroSection />
         </section>
 

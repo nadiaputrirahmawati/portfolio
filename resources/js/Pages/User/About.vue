@@ -58,7 +58,7 @@ const allStacks = Object.keys(STACKS);
             </div>
 
             <!-- Right: Featured Work -->
-            <div class="md:col-span-2 rounded-3xl w-8/12 lg:w-8/12 xl:w-8/12 h-full">
+            <div class="md:col-span-2 rounded-3xl w-full md:8/12 sm:w-full lg:w-8/12 xl:w-8/12 h-full">
                 <!-- Header -->
                 <div class="flex">
                     <div
@@ -85,7 +85,7 @@ const allStacks = Object.keys(STACKS);
                     </div>
                 </div>
 
-                <!-- Content -->
+                <!-- Sertif -->
                 <div
                     class="bg-hero p-7 rounded-tr-3xl rounded-b-3xl shadow-lg"
                 >
@@ -93,7 +93,7 @@ const allStacks = Object.keys(STACKS);
                         class="flex flex-col md:flex-row space-x-0 lg:space-x-5 mb-6"
                     >
                         <div
-                            class="lg:w-4/12 bg-white flex justify-center rounded-3xl box-circle"
+                            class="w-full md:w-8/12 lg:w-4/12 bg-white flex justify-center rounded-3xl box-circle"
                         >
                             <div
                                 class="relative flex items-center space-x-[-70px] mb-4"
@@ -135,7 +135,7 @@ const allStacks = Object.keys(STACKS);
                         </div>
                         <!-- Bagian Skills -->
                         <div
-                            class="bg-green-light rounded-3xl p-6 w-8/12 lg:w-8/12 lg:mt-0 mt-5"
+                            class="bg-green-light rounded-3xl p-6 w-full md:4/12 lg:w-6/12 lg:mt-0 mt-5"
                         >
                             <!-- Baris 1 -->
                             <div class="relative w-full overflow-hidden mb-4">

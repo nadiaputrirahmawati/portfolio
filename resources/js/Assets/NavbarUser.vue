@@ -34,7 +34,7 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 </script>
 
 <template>
-  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 w-full md:w-[45%] lg:w-[45%] xl:w-[30%] max-w-4xl">
+  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 w-full md:w-[54%] lg:w-[45%] xl:w-[30%] max-w-4xl">
     <div
       class="bg-white rounded-full shadow-md px-4 py-2 flex items-center justify-between md:justify-center"
     >

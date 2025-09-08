@@ -9,7 +9,7 @@ const allStacks = Object.keys(STACKS);
 
 <template>
     <section
-        class="px-4 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest box-skill bg-hero"
+        class="px-3 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest box-skill bg-hero"
     >
         <div class="p-10">
             <div class="flex space-x-4 px-6 mt-5">
