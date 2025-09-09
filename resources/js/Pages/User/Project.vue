@@ -10,11 +10,18 @@ const allProject = [
         stacks: ["Laravel", "Vue", "Tailwind", "PHP"],
     },
 ];
+
+import useScrollReveal from "@/composables/useScrollReveal";
+
+const { element, isVisible, animation } = useScrollReveal(
+    "animate__fadeInUp",
+    0.8
+);
 </script>
 
 <template>
     <section
-        class="px-4 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest box-skill bg-hero"
+        class="px-0 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest box-skill bg-hero"
     >
         <div class="p-10">
             <div class="flex space-x-4 px-6 mt-5">
@@ -25,14 +32,21 @@ const allProject = [
 
             <div
                 class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-5"
+                ref="element"
+                :class="[
+                    'transition-opacity duration-700',
+                    isVisible
+                        ? `animate__animated ${animation} opacity-100`
+                        : 'opacity-0',
+                ]"
             >
                 <div
                     v-for="project in allProject"
                     :key="project.name"
-                    class="relative flex w-80 flex-col rounded-xl bg-[#ffffff64] text-gray-700  backdrop-blur-md  shadow-lg shadow-blue-gray-500/40"
+                    class="relative flex w-80 flex-col rounded-xl bg-[#ffffff64] text-gray-700 backdrop-blur-md shadow-lg shadow-blue-gray-500/40"
                 >
                     <div
-                        class="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 "
+                        class="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40"
                     >
                         <img
                             :src="project.image"

@@ -10,6 +10,28 @@ import { LiaEnvelopeSolid, LiaGithub } from "vue-icons-plus/lia";
 import { Fa6RegAddressBook } from "vue-icons-plus/fa6";
 import { STACKS } from "@/constants/stack";
 const allStacks = Object.keys(STACKS);
+import useScrollReveal from "@/composables/useScrollReveal";
+
+const {
+    element: element1,
+    isVisible: visible1,
+    animation: animation1,
+} = useScrollReveal("animate__fadeInDown", 0.2);
+const {
+    element: element2,
+    isVisible: visible2,
+    animation: animation2,
+} = useScrollReveal("animate__fadeInUp", 0.1);
+const {
+    element: element3,
+    isVisible: visible3,
+    animation: animation3,
+} = useScrollReveal("animate__zoomIn", 0.4);
+const {
+    element: element4,
+    isVisible: visible4,
+    animation: animation4,
+} = useScrollReveal("animate__flipInX", 0.10);
 </script>
 
 <template>
@@ -17,7 +39,16 @@ const allStacks = Object.keys(STACKS);
         id="about"
         class="px-4 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest"
     >
-        <div class="flex justify-center mb-16">
+        <div
+            class="flex justify-center mb-16"
+            ref="element1"
+            :class="[
+                'transition-opacity duration-700',
+                visible1
+                    ? `animate__animated ${animation1} opacity-100`
+                    : 'opacity-0',
+            ]"
+        >
             <h1
                 class="text-xl md:text-4xl xl:text-5xl uppercase font-light text-gray-800 font-playfair text-center"
             >
@@ -28,7 +59,16 @@ const allStacks = Object.keys(STACKS);
         <div class="flex flex-col md:flex-row gap-4">
             <!-- Left: Foto & sapaan -->
             <div class="lg:w-4/12 xl:4/12 md:4/12 sm:w-full">
-                <div class="flex justify-center">
+                <div
+                    class="flex justify-center"
+                    ref="element2"
+                    :class="[
+                        'transition-opacity duration-700',
+                        visible2
+                            ? `animate__animated ${animation2} opacity-100`
+                            : 'opacity-0',
+                    ]"
+                >
                     <img
                         src="/image/2.png"
                         alt="Profile"
@@ -46,19 +86,21 @@ const allStacks = Object.keys(STACKS);
 
                 <div class="bg-yellow rounded-xl p-4 mt-3 stamp">
                     <h3 class="font-bold text-green">Education</h3>
-                        <div>
-                            <p>Universitas Muhammadiyah Sukabumi</p>
-                            <p class="text-sm text-gray-600">
-                                Teknik Informatika (2022–2025)
-                            </p>
-                        </div>
+                    <div>
+                        <p>Universitas Muhammadiyah Sukabumi</p>
+                        <p class="text-sm text-gray-600">
+                            Teknik Informatika (2022–2025)
+                        </p>
+                    </div>
                     <h3 class="mt-4 font-bold">Country</h3>
                     <p>Indonesia</p>
                 </div>
             </div>
 
             <!-- Right: Featured Work -->
-            <div class="md:col-span-2 rounded-3xl w-full md:8/12 sm:w-full lg:w-8/12 xl:w-8/12 h-full">
+            <div
+                class="md:col-span-2 rounded-3xl w-full md:8/12 sm:w-full lg:w-8/12 xl:w-8/12 h-full"
+            >
                 <!-- Header -->
                 <div class="flex">
                     <div
@@ -86,14 +128,19 @@ const allStacks = Object.keys(STACKS);
                 </div>
 
                 <!-- Sertif -->
-                <div
-                    class="bg-hero p-7 rounded-tr-3xl rounded-b-3xl shadow-lg"
-                >
+                <div class="bg-hero p-7 rounded-tr-3xl rounded-b-3xl shadow-lg">
                     <div
                         class="flex flex-col md:flex-row space-x-0 lg:space-x-5 mb-6"
                     >
                         <div
                             class="w-full md:w-8/12 lg:w-4/12 bg-white flex justify-center rounded-3xl box-circle"
+                            ref="element3"
+                            :class="[
+                                'transition-opacity duration-700',
+                                visible3
+                                    ? `animate__animated ${animation3} opacity-100`
+                                    : 'opacity-0',
+                            ]"
                         >
                             <div
                                 class="relative flex items-center space-x-[-70px] mb-4"
@@ -136,6 +183,13 @@ const allStacks = Object.keys(STACKS);
                         <!-- Bagian Skills -->
                         <div
                             class="bg-green-light rounded-3xl p-6 w-full md:4/12 lg:w-6/12 lg:mt-0 mt-5"
+                            ref="element4"
+                            :class="[
+                                'transition-opacity duration-700',
+                                visible4
+                                    ? `animate__animated ${animation4} opacity-100`
+                                    : 'opacity-0',
+                            ]"
                         >
                             <!-- Baris 1 -->
                             <div class="relative w-full overflow-hidden mb-4">
@@ -194,7 +248,13 @@ const allStacks = Object.keys(STACKS);
                         class="flex flex-col md:flex-row space-x-0 lg:space-x-5"
                     >
                         <div
-                            class="bg-green-light rounded-3xl overflow-hidden p-4 flex lg:w-8/12 w-full"
+                            class="bg-green-light rounded-3xl overflow-hidden p-4 flex lg:w-8/12 w-full"  ref="element4"
+                    :class="[
+                        'transition-opacity duration-700',
+                        visible4
+                            ? `animate__animated ${animation4} opacity-100`
+                            : 'opacity-0',
+                    ]"
                         >
                             <div class="flex space-x-5">
                                 <div class="w-6/12">
@@ -247,6 +307,12 @@ const allStacks = Object.keys(STACKS);
 
                         <div
                             class="bg-white rounded-3xl lg:w-5/12 lg:mt-0 mt-6 overflow-hidden corner-only"
+                            :class="[
+                                'transition-opacity duration-700',
+                                visible3
+                                    ? `animate__animated ${animation3} opacity-100`
+                                    : 'opacity-0',
+                            ]"
                         >
                             <div
                                 class="p-1 sm:mt-1 md:mt-1 lg:mt-1 xl:mt-3 mt-1"
@@ -333,7 +399,7 @@ const allStacks = Object.keys(STACKS);
                                         </div>
                                     </div>
                                     <div
-                                        class="py-1 px-1 bg-gradient-to-b from-red-800 to-red-600 rounded-lg flex space-x-3 mt-1 justify-center lg:justify-end xl:justify-center"
+                                        class="py-1 px-1 bg-gradient-to-b from-red-800 to-red-600 rounded-lg flex space-x-3 mt-1 justify-center lg:justify-end xl:justify-center animate__animated animate__fadeInRight"
                                     >
                                         <div
                                             class="flex flex-row items-center space-x-2"

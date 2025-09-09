@@ -5,6 +5,12 @@ import { Code2 } from "lucide-vue-next";
 import { STACKS } from "@/constants/stack";
 
 const allStacks = Object.keys(STACKS);
+import useScrollReveal from "@/composables/useScrollReveal";
+const {
+    element: element4,
+    isVisible: visible4,
+    animation: animation4,
+} = useScrollReveal("animate__zoomInUp", 0.50);
 </script>
 
 <template>
@@ -21,7 +27,13 @@ const allStacks = Object.keys(STACKS);
                     My professional skills.
                 </p>
             </div>
-            <div class="grid lg:grid-cols-11 md:grid-cols-6   grid-cols-3 p-4 justify-start mt-4 gap-2 ">
+            <div class="grid lg:grid-cols-11 md:grid-cols-6   grid-cols-3 p-4 justify-start mt-4 gap-2 " ref="element4"
+            :class="[
+                'transition-opacity duration-700',
+                visible4
+                    ? `animate__animated ${animation4} opacity-100`
+                    : 'opacity-0',
+            ]">
                 <div v-for="stack in allStacks" :key="stack" class="relative group mt-4">
                     <!-- Bayangan belakang -->
                     <div

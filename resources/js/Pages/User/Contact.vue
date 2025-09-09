@@ -3,9 +3,23 @@ import {
     LuGalleryVerticalEnd,
     LuArrowUpRight,
     LuInstagram,
-    LuLinkedin,  LuContact2
+    LuLinkedin,
+    LuContact2,
 } from "vue-icons-plus/lu";
-import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
+import { LiaEnvelopeSolid, LiaGithub } from "vue-icons-plus/lia";
+import { SiLinkedin } from "vue-icons-plus/si";
+import useScrollReveal from "@/composables/useScrollReveal";
+
+const {
+    element: element1,
+    isVisible: visible1,
+    animation: animation1,
+} = useScrollReveal("animate__lightSpeedInLeft", 0.8);
+const {
+    element: element2,
+    isVisible: visible2,
+    animation: animation2,
+} = useScrollReveal("animate__flipInX", 0.10);
 </script>
 
 <template>
@@ -16,7 +30,16 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
         </div>
         <p class="text-gray-500 text-xl px-6">Let`s get in touch</p>
         <div class="flex flex-col lg:flex-row gap-4 mt-5">
-            <div class="w-full lg:3/12 bg-hero shadow-lg shadow-gray-300 shadow-opacity-20">
+            <div
+                class="w-full lg:3/12 bg-hero shadow-lg shadow-gray-300 shadow-opacity-20 lg:wavy-box xl:wavy-box"
+                ref="element1"
+                :class="[
+                    'transition-opacity duration-700',
+                    visible1
+                        ? `animate__animated ${animation1} opacity-100`
+                        : 'opacity-0',
+                ]"
+            >
                 <h1 class="text-center text-xl p-4">Send Me A Message</h1>
                 <div class="p-4">
                     <form action="" method="post">
@@ -30,9 +53,16 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                             class="w-full mb-3 bg-transparent border-b-2 border-green-light"
                             placeholder="Email"
                         />
-                        <textarea class="w-full bg-transparent border-b-2 border-green-light" placeholder="Message"></textarea>
+                        <textarea
+                            class="w-full bg-transparent border-b-2 border-green-light"
+                            placeholder="Message"
+                        ></textarea>
                         <div class="flex justify-center">
-                            <button class="py-2 mt-3 rounded-full bg-green-light text-white">Send</button>
+                            <button
+                                class="py-2 px-8 mt-3 rounded-full bg-green-light text-white"
+                            >
+                                Send
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -42,6 +72,13 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div
                         class="relative rounded-2xl w-full sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-purple-500 via-pink-500 to-orange-400 shadow-lg overflow-hidden"
+                        ref="element2"
+                        :class="[
+                            'transition-opacity duration-700',
+                            visible2
+                                ? `animate__animated ${animation2} opacity-100`
+                                : 'opacity-0',
+                        ]"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -64,7 +101,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                                 </a>
                             </div>
                             <div
-                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-24 -bottom-10 xl:left-44 xl:-bottom-10"
+                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-16 -bottom-10 xl:left-44 xl:-bottom-10"
                             >
                                 <h1>
                                     <LuInstagram class="text-white w-14 h-14" />
@@ -82,7 +119,14 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl  w-full sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-r from-[#106da1] via-[#056398] to-[#056398] shadow-lg overflow-hidden"
+                        class="relative rounded-2xl w-full sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-r from-[#106da1] via-[#056398] to-[#056398] shadow-lg overflow-hidden"
+                        ref="element2"
+                        :class="[
+                            'transition-opacity duration-700',
+                            visible2
+                                ? `animate__animated ${animation2} opacity-100`
+                                : 'opacity-0',
+                        ]"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -105,7 +149,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                                 </a>
                             </div>
                             <div
-                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-20 -bottom-10 xl:left-36 xl:-bottom-10"
+                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-10 lg:left-6 lg:-bottom-14 left-12 -bottom-10 xl:left-40 xl:-bottom-8"
                             >
                                 <h1>
                                     <SiLinkedin class="text-white w-14 h-14" />
@@ -123,15 +167,22 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl px-5 py-3 h-36  w-full sm:w-96 md:w-full lg:w-full x:w-full bg-gradient-to-b from-[#0c1326] to-[#464e64] shadow-lg overflow-hidden"
+                        class="relative rounded-2xl px-5 py-3 h-36 w-full sm:w-96 md:w-full lg:w-full x:w-full bg-gradient-to-b from-[#0c1326] to-[#464e64] shadow-lg overflow-hidden"
+                        ref="element2"
+                        :class="[
+                            'transition-opacity duration-700',
+                            visible2
+                                ? `animate__animated ${animation2} opacity-100`
+                                : 'opacity-0',
+                        ]"
                     >
                         <!-- Bagian Teks -->
                         <div
                             class="relative z-10 flex flex-row space-y-2 xl:mt-4 mt-0 text-white w-11/12"
                         >
                             <div>
-                                <h2 class="text-md font-semibold">Explore My Code
-                                    
+                                <h2 class="text-md font-semibold">
+                                    Explore My Code
                                 </h2>
                                 <p class="text-sm opacity-90 mb-3">
                                     Explore my coding projects.
@@ -146,7 +197,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                                 </a>
                             </div>
                             <div
-                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-24 -bottom-10 xl:left-44 xl:-bottom-10"
+                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-28 md:-bottom-2 lg:left-6 lg:-bottom-14 left-16 -bottom-10 xl:left-44 xl:-bottom-10"
                             >
                                 <h1>
                                     <LiaGithub class="text-white w-14 h-14" />
@@ -164,7 +215,14 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                         </div>
                     </div>
                     <div
-                        class="relative rounded-2xl  w-full sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-red-800 to-red-600 shadow-lg overflow-hidden"
+                        class="relative rounded-2xl w-full sm:w-96 md:w-full lg:w-full x:w-full px-5 py-3 h-36 bg-gradient-to-b from-red-800 to-red-600 shadow-lg overflow-hidden"
+                        ref="element2"
+                        :class="[
+                            'transition-opacity duration-700',
+                            visible2
+                                ? `animate__animated ${animation2} opacity-100`
+                                : 'opacity-0',
+                        ]"
                     >
                         <!-- Bagian Teks -->
                         <div
@@ -187,7 +245,7 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
                                 </a>
                             </div>
                             <div
-                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-24 -bottom-10 xl:left-44 xl:-bottom-10"
+                                class="w-3/12 relative sm:-left-52 sm:-bottom-2 md:left-32 md:-bottom-2 lg:left-6 lg:-bottom-14 left-16 -bottom-10 xl:left-44 xl:-bottom-10"
                             >
                                 <h1>
                                     <LiaEnvelopeSolid
@@ -211,5 +269,3 @@ import { LiaEnvelopeSolid, LiaGithub,  } from "vue-icons-plus/lia";
         </div>
     </section>
 </template>
-
-

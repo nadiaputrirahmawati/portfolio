@@ -115,13 +115,13 @@
 .animate-marquee {
     display: flex;
     width: max-content;
-    animation: marquee 20s linear infinite;
+    animation: marquee 40s linear infinite;
 }
 
 .animate-marquee-reverse {
     display: flex;
     width: max-content;
-    animation: marquee-reverse 20s linear infinite;
+    animation: marquee-reverse 40s linear infinite;
 }
 
 /* CSS untuk menyembunyikan scrollbar */

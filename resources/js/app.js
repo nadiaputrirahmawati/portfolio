@@ -10,6 +10,7 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createApp, h } from "vue";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import PrimeVue from "primevue/config";
+import 'animate.css';
 // import 'primeicons/primeicons.css';
 import Aura from "@primeuix/themes/aura"; // Tema default
 

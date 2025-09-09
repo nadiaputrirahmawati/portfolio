@@ -10,6 +10,13 @@ import {
 } from "motion-v";
 import { type CSSProperties } from "vue";
 
+import useScrollReveal from "@/composables/useScrollReveal";
+const {
+    element: element4,
+    isVisible: visible4,
+    animation: animation4,
+} = useScrollReveal("animate__zoomIn", 0.50);
+
 // Refs untuk scroll container
 const containerRef = useDomRef();
 const { scrollXProgress } = useScroll({ container: containerRef });
@@ -88,7 +95,16 @@ const certificates = [
             </p>
 
             <!-- Scrollable Certificates -->
-            <div class="relative mt-6">
+            <div
+                class="relative mt-6"
+                ref="element4"
+                :class="[
+                    'transition-opacity duration-700',
+                    visible4
+                        ? `animate__animated ${animation4} opacity-100`
+                        : 'opacity-0',
+                ]"
+            >
                 <motion.ul
                     ref="containerRef"
                     :style="{ ...list, maskImage }"
@@ -113,6 +129,7 @@ const certificates = [
         </div>
     </section>
 </template>
+
 
 <style>
 /* sembunyikan scrollbar */
