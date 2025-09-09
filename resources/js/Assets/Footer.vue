@@ -27,7 +27,7 @@ const scrollTo = (id) => {
     >
       <!-- Brand -->
       <div>
-        <h2 class="text-2xl font-bold text-green-light">Story Nad</h2>
+        <h2 class="text-2xl font-bold text-green-light">Nadia Putri Rahmawati</h2>
         <p class="mt-3 text-gray-600 text-sm leading-relaxed">
           A personal portfolio & story hub where creativity meets experience.
         </p>

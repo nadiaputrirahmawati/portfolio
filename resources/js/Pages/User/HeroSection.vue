@@ -75,7 +75,10 @@ onMounted(() => {
         of code at a time.
       </p>
 
-      <div class="flex items-center justify-center md:justify-start space-x-4 mb-10">
+      <div class="flex items-center justify-center md:justify-start space-x-4 mb-10" :class="[
+          'transition-opacity duration-700',
+          isVisible ? `animate__animated ${animation} opacity-100` : 'opacity-0',
+        ]">
         <a
           href="https://www.linkedin.com/in/nadia-putri-r/"
           class="inline-flex items-center gap-2 bg-green-light text-white px-5 py-5 rounded-full font-semibold mt-4 shadow hover:bg-green transition"
