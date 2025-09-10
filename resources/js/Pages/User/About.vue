@@ -31,12 +31,11 @@ const {
     element: element4,
     isVisible: visible4,
     animation: animation4,
-} = useScrollReveal("animate__flipInX", 0.10);
+} = useScrollReveal("animate__flipInX", 0.1);
 </script>
 
 <template>
     <section
-        id="about"
         class="px-4 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest"
     >
         <div
@@ -248,13 +247,14 @@ const {
                         class="flex flex-col md:flex-row space-x-0 lg:space-x-5"
                     >
                         <div
-                            class="bg-green-light rounded-3xl overflow-hidden p-4 flex lg:w-8/12 w-full"  ref="element4"
-                    :class="[
-                        'transition-opacity duration-700',
-                        visible4
-                            ? `animate__animated ${animation4} opacity-100`
-                            : 'opacity-0',
-                    ]"
+                            class="bg-green-light rounded-3xl overflow-hidden p-4 flex lg:w-8/12 w-full"
+                            ref="element4"
+                            :class="[
+                                'transition-opacity duration-700',
+                                visible4
+                                    ? `animate__animated ${animation4} opacity-100`
+                                    : 'opacity-0',
+                            ]"
                         >
                             <div class="flex space-x-5">
                                 <div class="w-6/12">
@@ -332,94 +332,110 @@ const {
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-2">
-                                    <div
-                                        class="py-1 px-1 bg-gradient-to-b from-[#8c27c8] via-[#df439f] to-[#f76b31] justify-center rounded-lg flex space-x-3 mt-1"
-                                    >
+                                    <a href="https://instagram.com/ndiapttrrr">
                                         <div
-                                            class="flex flex-row items-center space-x-2"
+                                            class="py-1 px-1 bg-gradient-to-b from-[#8c27c8] via-[#df439f] to-[#f76b31] justify-center rounded-lg flex space-x-3 mt-1"
                                         >
-                                            <div class="w-6/12">
-                                                <h1
-                                                    class="text-red-200 font-light text-[10px]"
-                                                >
-                                                    Instagram
-                                                </h1>
-                                            </div>
                                             <div
-                                                class="w-6/12 rounded-md px-1 py-1 border-2 border-red-200 flex items-center justify-center backdrop-blur-xl bg-[#ebe5c220]"
+                                                class="flex flex-row items-center space-x-2"
                                             >
-                                                <LuInstagram
-                                                    class="text-white"
-                                                />
+                                                <div class="w-6/12">
+                                                    <h1
+                                                        class="text-red-200 font-light text-[10px]"
+                                                    >
+                                                        Instagram
+                                                    </h1>
+                                                </div>
+                                                <div
+                                                    class="w-6/12 rounded-md px-1 py-1 border-2 border-red-200 flex items-center justify-center backdrop-blur-xl bg-[#ebe5c220]"
+                                                >
+                                                    <LuInstagram
+                                                        class="text-white"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="py-1 px-1 bg-gradient-to-b from-[#106da1] to-[#056398] rounded-lg flex justify-center space-x-3 mt-1"
+                                    </a>
+
+                                    <a
+                                        href="https://www.linkedin.com/in/nadia-putri-r/"
                                     >
                                         <div
-                                            class="flex flex-row items-center space-x-2"
+                                            class="py-1 px-1 bg-gradient-to-b from-[#106da1] to-[#056398] rounded-lg flex justify-center space-x-3 mt-1"
                                         >
-                                            <div class="w-8/12">
-                                                <h1
-                                                    class="text-[#bfe8fb] font-light lg:text-[11px] xl:text-md"
-                                                >
-                                                    Linkedin
-                                                </h1>
-                                            </div>
                                             <div
-                                                class="w-6/12 rounded-md px-1 py-1 border-2 border-[#6dc1e9] flex items-center justify-center backdrop-blur-xl bg-[#ebe5c220]"
+                                                class="flex flex-row items-center space-x-2"
                                             >
-                                                <LuLinkedin
-                                                    class="text-white"
-                                                />
+                                                <div class="w-8/12">
+                                                    <h1
+                                                        class="text-[#bfe8fb] font-light lg:text-[11px] xl:text-md"
+                                                    >
+                                                        Linkedin
+                                                    </h1>
+                                                </div>
+                                                <div
+                                                    class="w-6/12 rounded-md px-1 py-1 border-2 border-[#6dc1e9] flex items-center justify-center backdrop-blur-xl bg-[#ebe5c220]"
+                                                >
+                                                    <LuLinkedin
+                                                        class="text-white"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="grid grid-cols-2 gap-1">
-                                    <div
-                                        class="py-1 px-1 bg-gradient-to-b from-[#0c1326] to-[#464e64] rounded-lg flex space-x-3 mt-1 justify-center lg:justify-end xl:justify-center"
+                                    <a
+                                        href="https://github.com/nadiaputrirahmawati"
                                     >
                                         <div
-                                            class="flex flex-row items-center space-x-2"
+                                            class="py-1 px-1 bg-gradient-to-b from-[#0c1326] to-[#464e64] rounded-lg flex space-x-3 mt-1 justify-center lg:justify-end xl:justify-center"
                                         >
-                                            <div class="w-8/12">
-                                                <h1
-                                                    class="text-gray-200 font-light text-xs"
-                                                >
-                                                    Github
-                                                </h1>
-                                            </div>
                                             <div
-                                                class="w-6/12 rounded-md px-1 py-1 border-2 border-gray-200 flex items-center justify-center backdrop-blur-xl bg-[#ebe5c220]"
+                                                class="flex flex-row items-center space-x-2"
                                             >
-                                                <LiaGithub class="text-white" />
+                                                <div class="w-8/12">
+                                                    <h1
+                                                        class="text-gray-200 font-light text-xs"
+                                                    >
+                                                        Github
+                                                    </h1>
+                                                </div>
+                                                <div
+                                                    class="w-6/12 rounded-md px-1 py-1 border-2 border-gray-200 flex items-center justify-center backdrop-blur-xl bg-[#ebe5c220]"
+                                                >
+                                                    <LiaGithub
+                                                        class="text-white"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="py-1 px-1 bg-gradient-to-b from-red-800 to-red-600 rounded-lg flex space-x-3 mt-1 justify-center lg:justify-end xl:justify-center animate__animated animate__fadeInRight"
-                                    >
+                                    </a>
+
+                                    <a href="mailto:nadiaputrirahman@gmail.com">
                                         <div
-                                            class="flex flex-row items-center space-x-2"
+                                            class="py-1 px-1 bg-gradient-to-b from-red-800 to-red-600 rounded-lg flex space-x-3 mt-1 justify-center lg:justify-end xl:justify-center animate__animated animate__fadeInRight"
                                         >
-                                            <div class="w-8/12">
-                                                <h1
-                                                    class="text-red-200 font-light text-xs"
-                                                >
-                                                    Email
-                                                </h1>
-                                            </div>
                                             <div
-                                                class="w-6/12 rounded-md px-1 py-1 border-2 border-red-300 flex items-center justify-center backdrop-blur-xl bg-[#ebe5c220]"
+                                                class="flex flex-row items-center space-x-2"
                                             >
-                                                <LiaEnvelopeSolid
-                                                    class="text-white"
-                                                />
+                                                <div class="w-8/12">
+                                                    <h1
+                                                        class="text-red-200 font-light text-xs"
+                                                    >
+                                                        Email
+                                                    </h1>
+                                                </div>
+                                                <div
+                                                    class="w-6/12 rounded-md px-1 py-1 border-2 border-red-300 flex items-center justify-center backdrop-blur-xl bg-[#ebe5c220]"
+                                                >
+                                                    <LiaEnvelopeSolid
+                                                        class="text-white"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -92,7 +92,7 @@ const {
                                     Discover my visual journey.
                                 </p>
                                 <a
-                                    href="https://instagram.com/yourusername"
+                                    href="https://instagram.com/ndiapttrrr"
                                     target="_blank"
                                     class="inline-flex items-center text-sm bg-white xl:mt-2 mt-0 text-black font-medium px-2 py-2 rounded-lg shadow hover:bg-gray-100 transition w-max"
                                 >
@@ -140,7 +140,7 @@ const {
                                     Connect with my career path.
                                 </p>
                                 <a
-                                    href="https://instagram.com/yourusername"
+                                    href="https://www.linkedin.com/in/nadia-putri-r/"
                                     target="_blank"
                                     class="inline-flex items-center text-sm bg-cyan-200 text-black font-medium px-2 py-2 rounded-lg shadow hover:bg-gray-100 transition w-max"
                                 >
@@ -188,7 +188,7 @@ const {
                                     Explore my coding projects.
                                 </p>
                                 <a
-                                    href="https://instagram.com/yourusername"
+                                    href="https://github.com/nadiaputrirahmawati"
                                     target="_blank"
                                     class="inline-flex items-center text-sm bg-white xl:mt-2 mt-0 text-black font-medium px-2 py-2 rounded-lg shadow hover:bg-gray-100 transition w-max"
                                 >
@@ -236,7 +236,7 @@ const {
                                     Drop me a quick message.
                                 </p>
                                 <a
-                                    href="https://instagram.com/yourusername"
+                                   href="mailto:nadiaputrirahman@gmail.com"
                                     target="_blank"
                                     class="inline-flex items-center text-sm bg-red-200 text-black font-medium px-2 py-2 rounded-lg shadow hover:bg-gray-100 transition w-max"
                                 >

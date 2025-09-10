@@ -97,21 +97,21 @@ const scrollTo = (id) => {
         <h3 class="text-lg font-semibold text-gray-800 mb-4">Follow Me</h3>
         <div class="flex space-x-5">
           <a
-            href="#"
+            href="https://instagram.com/ndiapttrrr"
             target="_blank"
             class="w-10 h-10 flex items-center justify-center rounded-full bg-green-light text-white hover:scale-110 transition"
           >
             <LuInstagram class="text-xl" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/nadia-putri-r/"
             target="_blank"
             class="w-10 h-10 flex items-center justify-center rounded-full bg-green-light text-white hover:scale-110 transition"
           >
             <LuLinkedin class="text-xl" />
           </a>
           <a
-            href="#"
+            href="https://github.com/nadiaputrirahmawati"
             target="_blank"
             class="w-10 h-10 flex items-center justify-center rounded-full bg-green-light text-white hover:scale-110 transition"
           >
