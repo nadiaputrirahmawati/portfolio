@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->id('project_id');
-            $table->string('title');
-            $table->text('description');
+        Schema::create('achievements', function (Blueprint $table) {
+            $table->id('achievements_id');
+            $table->string('title')->nullable();
             $table->string('image');
-            $table->string('link');
-            $table->string('code');
-            $table->string('skill');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->text('credentials')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('achievements');
     }
 };

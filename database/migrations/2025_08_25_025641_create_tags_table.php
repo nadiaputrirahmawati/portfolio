@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->id('tag_id');
+        Schema::create('messege', function (Blueprint $table) {
+            $table->id('messege_id');
             $table->string('name');
-            $table->string('image');
+            $table->string('email');
+            $table->string('message')->nullable();
             $table->timestamps();
         });
     }

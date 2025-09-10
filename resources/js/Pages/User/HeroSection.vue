@@ -50,19 +50,19 @@ onMounted(() => {
       class="text-center md:text-left max-w-xl mt-3 sm:mt-0 md:mt-10 xl:mt-32"
       ref="element"
     >
-      <h3 class="text-2xl md:text-3xl xl:text-3xl uppercase font-medium text-gray-800 font-playfair" :class="[
+      <h3 class="text-xl md:text-3xl xl:text-3xl uppercase font-medium text-gray-800 font-playfair" :class="[
           'transition-opacity duration-700',
           isVisible ? `animate__animated ${animation} opacity-100` : 'opacity-0',
         ]">
         Hello !
       </h3>
 
-      <h1 class="text-xs sm:xs md:text-5xl xl:text-6xl mt-2 tracking-normal font-playfair leading-normal" ref="typedElement">
+      <h1 class="text-2xl  md:text-5xl xl:text-6xl mt-2 tracking-normal font-playfair leading-normal" ref="typedElement">
         <!-- <span ></span> -->
       </h1>
 
       <p
-        class="text-gray-600 mt-4 text-sm md:text-base leading-normal font-light tracking-wide"
+        class="text-gray-600 mt-4 lg:text-sm text-xs md:text-base leading-normal font-light tracking-wide lg:px-0 px-10"
         :class="[
           'transition-opacity duration-700',
           isVisible ? `animate__animated ${animation} opacity-100` : 'opacity-0',
