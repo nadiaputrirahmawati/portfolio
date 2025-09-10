@@ -4,8 +4,13 @@
         <meta charset="utf-8">
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
         <title >Portfolio Nadia P.R</title>
+
+        <meta name="description" content="Personal Portfolio Nadia Putri Ramadhani | Full Stack Web Developer | nadiaputrirahmawati.my.id">
+
+        <!-- ✅ Favicon -->
+        <link rel="icon" href="{{ asset('/favicon/nadia.png') }}" type="image/x-icon">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
