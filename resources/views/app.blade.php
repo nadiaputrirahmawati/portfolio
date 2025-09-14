@@ -3,11 +3,13 @@
     <head>
         <meta charset="utf-8">
         
+        {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         
-        <title >Portfolio Nadia P.R</title>
+        <title >Nadia Putri Rahmawati</title>
 
-        <meta name="description" content="Personal Portfolio Nadia Putri Ramadhani | Full Stack Web Developer | nadiaputrirahmawati.my.id">
+        <meta name="description" content="Personal Portfolio Website">
 
         <!-- ✅ Favicon -->
         <link rel="icon" href="{{ asset('/favicon/nadia.png') }}" type="image/x-icon">

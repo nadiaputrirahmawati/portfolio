@@ -3,6 +3,7 @@ import "../css/hero.css";
 import "../css/skill.css";
 import "../css/contact.css";
 import "../css/footer.css";
+import "../css/milkdown.css";
 import "./bootstrap";
 
 import { createInertiaApp } from "@inertiajs/vue3";
@@ -11,6 +12,7 @@ import { createApp, h } from "vue";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import PrimeVue from "primevue/config";
 import 'animate.css';
+
 // import 'primeicons/primeicons.css';
 import Aura from "@primeuix/themes/aura"; // Tema default
 
@@ -27,6 +29,8 @@ import "@fontsource/onest/400.css";
 import "@fontsource/onest/500.css";
 import "@fontsource/onest/600.css";
 import "@fontsource/onest/700.css";
+
+
 
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 

@@ -23,10 +23,16 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
+        "@cloudinary/url-gen": "^1.22.0",
+        "@cloudinary/vue": "^1.13.3",
         "@fontsource/onest": "^5.2.9",
         "@fontsource/playfair-display": "^5.2.6",
         "@fontsource/sora": "^5.2.6",
+        "@milkdown/core": "^6.5.4",
+        "@milkdown/plugin-menu": "^6.5.4",
+        "@milkdown/preset-commonmark": "^6.5.4",
         "@primeuix/themes": "^1.2.3",
+        "@tinymce/tinymce-vue": "^6.3.0",
         "animate.css": "^4.1.1",
         "lucide-vue-next": "^0.542.0",
         "motion-v": "^1.7.1",

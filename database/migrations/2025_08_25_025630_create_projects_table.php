@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('image');
             $table->string('link');
             $table->string('code');
-            $table->string('skill');
+            $table->json('skill');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->boolean('pinned')->default(false);
             $table->timestamps();
         });
     }

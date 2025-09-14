@@ -10,6 +10,7 @@ import Project from "./User/Project.vue";
 import Contact from "./User/Contact.vue";
 import Footer from "@/Assets/Footer.vue";
 
+
 // Loader hanya saat awal buka
 const loading = ref(true);
 
@@ -19,6 +20,19 @@ onMounted(() => {
         loading.value = false;
     }, 1500); // 1.5 detik, sesuaikan sesuai kebutuhan
 });
+
+const props = defineProps({
+  project: {
+    type: Array,
+    required: true,
+  },
+  sertif: {
+    type: Array,
+    required: true,
+  },
+})
+
+
 </script>
 
 <template>
@@ -52,7 +66,7 @@ onMounted(() => {
             </section>
 
             <section id="projects">
-                <Project />
+                <Project :project="props.project" />
             </section>
 
             <section id="contact">
