@@ -32,12 +32,21 @@ const {
     isVisible: visible4,
     animation: animation4,
 } = useScrollReveal("animate__flipInX", 0.1);
+
+const props = defineProps({
+    projectabout: {
+        type: Array,
+        required: true,
+    },
+    sertif: {
+        type: Array,
+        required: true,
+    },
+});
 </script>
 
 <template>
-    <section
-        class="px-4 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest"
-    >
+    <section class="px-4 md:px-16 lg:px-16 xl:px-44 mt-16 font-onest">
         <div
             class="flex justify-center mb-16"
             ref="element1"
@@ -278,29 +287,21 @@ const {
                                         real impact.
                                     </p>
                                 </div>
+                                <!-- Kontainer scroll -->
                                 <div
                                     class="h-40 overflow-y-auto scrollbar-hide space-y-4 w-6/12"
                                 >
-                                    <!-- Gambar 1 -->
-                                    <img
-                                        src="/project/ayo-donasi.png"
-                                        alt="Project 1"
-                                        class="rounded-xl shadow-md"
-                                    />
-
-                                    <!-- Gambar 2 -->
-                                    <img
-                                        src="/project/ai.png"
-                                        alt="Project 2"
-                                        class="rounded-xl shadow-md"
-                                    />
-
-                                    <!-- Bisa tambah lagi gambar -->
-                                    <img
-                                        src="/project/pkl.png"
-                                        alt="Project 3"
-                                        class="rounded-xl shadow-md"
-                                    />
+                                    <!-- Item project -->
+                                    <div
+                                        v-for="item in projectabout"
+                                        :key="item.project_id"
+                                    >
+                                        <img
+                                            :src="item.image" 
+                                            alt="Project 1"
+                                            class="rounded-xl shadow-md"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>

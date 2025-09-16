@@ -18,6 +18,7 @@ const code = ref(props.project.code ?? "");
 const skill = ref(props.project.skill ?? []);
 const status = ref(props.project.status ?? "draft");
 const image = ref(null);
+const pinned = ref(props.project.pinned ?? false); // ✅ pinned
 
 // image preview
 const imagePreview = ref(
@@ -52,6 +53,7 @@ const submit = () => {
   formData.append("link", link.value);
   formData.append("code", code.value);
   formData.append("status", status.value);
+  formData.append("pinned", pinned.value ? 1 : 0); // ✅ kirim boolean
 
   skill.value.forEach((s, i) => {
     formData.append(`skill[${i}]`, s);
@@ -77,15 +79,15 @@ const submit = () => {
 
 // TinyMCE config
 const editorInit = {
-    height: 400,
-    menubar: false,
-    plugins: "link image media table code lists autoresize",
-    toolbar:
-        "undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image media | code",
-    images_upload_url: "/upload",
-    automatic_uploads: true,
-    file_picker_types: "image",
-    paste_as_text: true,
+  height: 400,
+  menubar: false,
+  plugins: "link image media table code lists autoresize",
+  toolbar:
+    "undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image media | code",
+  images_upload_url: "/upload",
+  automatic_uploads: true,
+  file_picker_types: "image",
+  paste_as_text: true,
 };
 </script>
 
@@ -216,8 +218,19 @@ const editorInit = {
           </select>
         </div>
 
+        <!-- ✅ Pinned -->
+        <div class="flex items-center mt-3">
+          <input
+            id="pinned"
+            type="checkbox"
+            v-model="pinned"
+            class="mr-2"
+          />
+          <label for="pinned" class="text-sm font-medium">Pinned</label>
+        </div>
+
         <!-- Submit -->
-        <div class="flex justify-end">
+        <div class="flex justify-end mt-6">
           <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">
             Update Project
           </button>

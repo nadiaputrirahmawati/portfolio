@@ -48,7 +48,7 @@ class ProjectsController extends Controller
 
         // Upload file ke Cloudinary
         $path = $request->file('image')->store('project', 'public');
-        $validated['projects_id'] = rand(1,100);
+        $validated['projects_id'] = rand(1, 100);
         $validated['slug'] = Str::slug($validated['title']);
 
 
@@ -123,43 +123,44 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // Cari project berdasarkan ID
-        //    dd($request->all());
         $project = Project::findOrFail($id);
 
-
-        // Validasi input
         $validated = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
             'image'       => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
             'link'        => 'required|string',
             'code'        => 'required|string',
+            'pinned'      => 'required|boolean',
             'skill'       => 'required|array',
             'status'      => 'required|in:active,inactive',
         ]);
 
-        // Jika ada file baru diupload
+        // Cek apakah title berubah
+        if ($validated['title'] !== $project->title) {
+            $validated['slug'] = Str::slug($validated['title']);
+        } else {
+            $validated['slug'] = $project->slug; // pakai slug lama
+        }
+
+        // File upload handling
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('project', 'public');
             $validated['image'] = 'storage/' . $path;
 
-            // Hapus file lama jika ada
             if ($project->image && file_exists(public_path($project->image))) {
                 @unlink(public_path($project->image));
             }
         } else {
-            // Kalau tidak ada file baru, tetap pakai image lama
             $validated['image'] = $project->image;
         }
 
-
-
-        // Update data ke database
         $project->update($validated);
 
-        return redirect()->route('projects.index')->with('success', 'Project berhasil diperbarui.');
+        return redirect()->route('projects.index')
+            ->with('success', 'Project berhasil diperbarui.');
     }
+
 
 
     /**

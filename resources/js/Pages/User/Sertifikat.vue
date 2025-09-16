@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { LiaCertificateSolid } from "vue-icons-plus/lia";
 import {
     motion,
@@ -8,14 +8,13 @@ import {
     useMotionValue,
     animate,
 } from "motion-v";
-import { type CSSProperties } from "vue";
 
 import useScrollReveal from "@/composables/useScrollReveal";
 const {
     element: element4,
     isVisible: visible4,
     animation: animation4,
-} = useScrollReveal("animate__zoomIn", 0.50);
+} = useScrollReveal("animate__zoomIn", 0.5);
 
 // Refs untuk scroll container
 const containerRef = useDomRef();
@@ -59,8 +58,8 @@ function useScrollOverflowMask(scrollXProgress) {
     return maskImage;
 }
 
-// styling tambahan
-const list: CSSProperties = {
+// styling tambahan (JS object biasa)
+const list = {
     display: "flex",
     gap: "20px",
     overflowX: "scroll",
@@ -68,18 +67,17 @@ const list: CSSProperties = {
     padding: "20px 0",
 };
 
-const listItem: CSSProperties = {
+const listItem = {
     flex: "0 0 260px", // tiap item fix width
 };
 
-const certificates = [
-    { id: 1, image: "/project/sertif1.png" },
-    { id: 2, image: "/project/sertificat.jpeg" },
-    { id: 3, image: "/project/image.png" },
-    // { id: 4, image: "/project/sertificat-4.jpeg" },
-    // { id: 5, image: "/project/sertificat-5.jpeg" },
-    // { id: 6, image: "/project/sertificat-6.jpeg" },
-];
+// props untuk sertif
+const props = defineProps({
+    sertif: {
+        type: Array,
+        required: true,
+    },
+});
 </script>
 
 <template>
@@ -111,8 +109,8 @@ const certificates = [
                     class="scrollbar-hide"
                 >
                     <motion.li
-                        v-for="certificate in certificates"
-                        :key="certificate.id"
+                        v-for="certificate in sertif"
+                        :key="certificate.achievements_id"
                         :style="listItem"
                         :whileHover="{ scale: 1.05 }"
                         :whileTap="{ scale: 0.95 }"
@@ -129,7 +127,6 @@ const certificates = [
         </div>
     </section>
 </template>
-
 
 <style>
 /* sembunyikan scrollbar */

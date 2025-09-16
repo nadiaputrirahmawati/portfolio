@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Achievements;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str; 
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class AchievementsController extends Controller
 {
@@ -41,27 +41,24 @@ class AchievementsController extends Controller
             'credentials' => 'required|string|max:255',
         ]);
 
-
         $path = $request->file('image')->store('achievement', 'public');
-
         $validated['image'] = 'storage/' . $path;
 
         Achievements::create($validated);
 
-        return redirect()->route('achievements.index')->with('success', 'Project berhasil dibuat.');
+        return redirect()->route('achievements.index')->with('success', 'Achievement berhasil dibuat.');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        $achievement = Achievements::findOrFail($id);
+        // dd($achievement);
+        return Inertia::render('Achievements/edit', [
+            'achievement' => $achievement
+        ]);
     }
 
     /**
@@ -69,7 +66,31 @@ class AchievementsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $achievement = Achievements::findOrFail($id);
+        
+        // dd($request);
+        $validated = $request->validate([
+            'title'       => 'required|string|max:255',
+            'image'       => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
+            'status'      => 'required|in:active,inactive',
+            'link'        => 'nullable|string|max:255',
+            'credentials' => 'nullable|string|max:255',
+        ]);
+        // kalau ada upload image baru
+        if ($request->hasFile('image')) {
+            // hapus gambar lama
+            if ($achievement->image && str_starts_with($achievement->image, 'storage/')) {
+                $oldPath = str_replace('storage/', '', $achievement->image);
+                Storage::disk('public')->delete($oldPath);
+            }
+
+            $path = $request->file('image')->store('achievement', 'public');
+            $validated['image'] = 'storage/' . $path;
+        }
+
+        $achievement->update($validated);
+
+        return redirect()->route('achievements.index')->with('success', 'Achievement berhasil diperbarui.');
     }
 
     /**
@@ -77,6 +98,16 @@ class AchievementsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $achievement = Achievements::findOrFail($id);
+
+        // hapus file image kalau ada
+        if ($achievement->image && str_starts_with($achievement->image, 'storage/')) {
+            $oldPath = str_replace('storage/', '', $achievement->image);
+            Storage::disk('public')->delete($oldPath);
+        }
+
+        $achievement->delete();
+
+        return redirect()->route('achievements.index')->with('success', 'Achievement berhasil dihapus.');
     }
 }

@@ -15,11 +15,14 @@ class PortfolioController extends Controller
             ->orderBy('pinned', 'desc')   // pinned = 1 akan di atas
             ->orderBy('created_at', 'desc') // terbaru di atas
             ->get();
-        $sertif = Achievements::where('status', 'active')->get();
-        // dd($project);
+        $sertif = Achievements::where('status', 'active')->orderBy('created_at', 'desc')->get();
+
+        $projectabout = Project::where('status', 'active')->orderBy('created_at', 'desc')->limit(5)->get();
+        // dd($projectabout);
         return Inertia::render('Welcome',  [
             'project' => $project,
-            'sertif' => $sertif
+            'sertif' => $sertif,
+            'projectabout' => $projectabout
         ]);
     }
 

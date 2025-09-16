@@ -18,7 +18,7 @@ onMounted(() => {
     // Simulasi waktu load, bisa diganti dengan event lain (seperti gambar selesai dimuat)
     setTimeout(() => {
         loading.value = false;
-    }, 1500); // 1.5 detik, sesuaikan sesuai kebutuhan
+    }, 1000); // 1.5 detik, sesuaikan sesuai kebutuhan
 });
 
 const props = defineProps({
@@ -30,6 +30,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  projectabout: {
+    type: Array,
+    required: true,
+  }
 })
 
 
@@ -54,7 +58,7 @@ const props = defineProps({
             </section>
 
             <section id="about">
-                <About />
+                <About :projectabout="props.projectabout"/>
             </section>
 
             <section>
@@ -62,7 +66,7 @@ const props = defineProps({
             </section>
 
             <section>
-                <Sertifikat />
+                <Sertifikat :sertif="props.sertif"/>
             </section>
 
             <section id="projects">
