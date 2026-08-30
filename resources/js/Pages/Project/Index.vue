@@ -1,14 +1,13 @@
 <script setup>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { Link, useForm } from "@inertiajs/vue3";
+import { STACKS } from "@/constants/stack";
 
 const props = defineProps({
     projects: Array,
 });
 
 const form = useForm({});
-
-import { STACKS } from "@/constants/stack";
 
 const destroy = (id) => {
     if (confirm("Yakin mau hapus project ini?")) {
@@ -19,101 +18,182 @@ const destroy = (id) => {
 
 <template>
     <AdminLayout>
-        <div class="p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h1 class="text-2xl font-bold">Daftar Project</h1>
+        <!-- Background krem agar menyatu dengan navbar -->
+        <div class="p-6 md:p-8 min-h-screen font-sans">
+            
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row md:justify-between justify-start items-start md:items-center gap-4 mb-8">
+                <h1 class="text-4xl md:text-5xl lg:text-3xl font-extrabold text-gray-900 tracking-tight">
+                    Daftar Project
+                </h1>
+                
                 <Link
                     href="/projects/create"
-                    class="bg-blue-600 text-white px-4 py-2 rounded"
+                    class="bg-black text-white font-semibold rounded-full border-2 border-black px-6 py-2 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] hover:shadow-[2px_2px_0px_rgba(0,0,0,0.2)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all w-full md:w-auto text-center"
                 >
                     + Tambah Project
                 </Link>
             </div>
 
             <div v-if="projects.length > 0">
-                <table
-                    class="w-full border border-gray-300 rounded-lg overflow-hidden"
-                >
-                    <thead>
-                        <tr class="bg-gray-100 text-left">
-                            <th class="p-2 border">Title</th>
-                            <th class="p-2 border">Status</th>
-                            <th>image</th>
-                            <th>SKILL</th>
-                            <th class="p-2 border">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr
-                            v-for="project in projects"
-                            :key="project.project_id"
-                        >
-                            <td class="p-2 border">{{ project.title }}</td>
-                            <td class="p-2 border">
-                                <img
-                                    :src="`${project.image}`"
-                                    alt="Project Image"
-                                    class="w-16 h-16 object-cover rounded"
-                                />
-                            </td>
-                            <td class="p-2 border">
-                                <span
-                                    :class="
-                                        project.status === 'active'
-                                            ? 'text-green-600'
-                                            : 'text-red-600'
-                                    "
-                                >
-                                    {{ project.status }}
-                                </span>
-                            </td>
-
-                            <td class="p-2 border">
-                                <!-- render stacks -->
-                                <div class="flex flex-wrap gap-2">
+                <!-- ============================================== -->
+                <!-- TAMPILAN DESKTOP (TABEL) - Sembunyi di Mobile  -->
+                <!-- ============================================== -->
+                <div class="hidden md:block overflow-x-auto bg-white border-2 border-black rounded-2xl shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+                    <table class="w-full whitespace-nowrap">
+                        <thead>
+                            <tr class="bg-[#F8F9FA] text-gray-800 text-sm border-b-2 border-black">
+                                <th class="p-4 font-bold text-left">Title</th>
+                                <th class="p-4 font-bold text-left">Status</th>
+                                <th class="p-4 font-bold text-left">Image</th>
+                                <th class="p-4 font-bold text-left">Skill</th>
+                                <th class="p-4 font-bold text-left">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                v-for="project in projects"
+                                :key="project.project_id"
+                                class="border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors"
+                            >
+                                <td class="p-4 font-semibold text-gray-900">
+                                    {{ project.title }}
+                                </td>
+                                
+                                <td class="p-4">
                                     <span
-                                        v-for="(stack, i) in project.skill"
-                                        :key="i"
-                                        class="flex items-center gap-1 text-sm font-medium"
+                                        class="px-3 py-1 text-xs font-bold rounded-full border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                        :class="project.status === 'active' ? 'bg-[#86EFAC] text-black' : 'bg-[#FECACA] text-black'"
                                     >
-                                        <template v-if="STACKS[stack]">
-                                            <component
-                                                :is="STACKS[stack].icon"
-                                                :class="STACKS[stack].color  "
-                                            />
-                                        </template>
-                                        <template v-else>
-                                            {{ stack }}   
-                                        </template>
+                                        {{ project.status }}
                                     </span>
-                                </div>
-                            </td>
+                                </td>
 
-                            <!-- <div v-html="project.description"></div> -->
+                                <td class="p-4">
+                                    <img
+                                        :src="`${project.image}`"
+                                        alt="Project Image"
+                                        class="w-16 h-16 object-cover rounded-xl border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)]"
+                                    />
+                                </td>
 
-                            <td class="p-2 border flex gap-4">
-                                <Link
-                                    :href="`/projects/${project.project_id}/edit`"
-                                    class="text-blue-600 hover:underline"
-                                >
-                                    Edit
-                                </Link>
-                                <button
-                                    @click="destroy(project.project_id)"
-                                    class="text-red-600 hover:underline"
-                                    :disabled="form.processing"
-                                >
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <td class="p-4 whitespace-normal min-w-[100px]">
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            v-for="(stack, i) in project.skill"
+                                            :key="i"
+                                            class="flex items-center gap-1 text-xs font-semibold bg-white border-2 border-black rounded-lg px-2 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                        >
+                                            <template v-if="STACKS[stack]">
+                                                <component
+                                                    :is="STACKS[stack].icon"
+                                                    :class="STACKS[stack].color"
+                                                    class="w-7 h-7"
+                                                />
+                                            </template>
+                                            <template v-else>
+                                                {{ stack }}
+                                            </template>
+                                        </span>
+                                    </div>
+                                </td>
+
+                                <td class="p-4">
+                                    <div class="flex gap-3 h-full items-center">
+                                        <Link
+                                            :href="`/projects/${project.project_id}/edit`"
+                                            class="bg-[#BFDBFE] text-black border-2 border-black rounded-xl px-4 py-1.5 font-bold text-sm shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
+                                        >
+                                            Edit
+                                        </Link>
+                                        <button
+                                            @click="destroy(project.project_id)"
+                                            class="bg-[#FECDD3] text-black border-2 border-black rounded-xl px-4 py-1.5 font-bold text-sm shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
+                                            :disabled="form.processing"
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- TAMPILAN MOBILE (KARTU) - Sembunyi di Desktop  -->
+                <!-- ============================================== -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
+                    <div 
+                        v-for="project in projects" 
+                        :key="project.project_id"
+                        class="bg-white border-2 border-black rounded-2xl p-5 shadow-[6px_6px_0px_rgba(0,0,0,1)] flex flex-col gap-4"
+                    >
+                        <!-- Header Kartu: Gambar & Status -->
+                        <div class="flex justify-between items-start">
+                            <img
+                                :src="`${project.image}`"
+                                alt="Project Image"
+                                class="w-20 h-20 object-cover rounded-xl border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)]"
+                            />
+                            <span
+                                class="px-3 py-1 text-xs font-bold rounded-full border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                :class="project.status === 'active' ? 'bg-[#86EFAC] text-black' : 'bg-[#FECACA] text-black'"
+                            >
+                                {{ project.status }}
+                            </span>
+                        </div>
+
+                        <!-- Judul -->
+                        <h2 class="text-xl font-bold text-gray-900 mt-2">
+                            {{ project.title }}
+                        </h2>
+
+                        <!-- Skills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                v-for="(stack, i) in project.skill"
+                                :key="i"
+                                class="flex items-center gap-1 text-xs font-semibold bg-white border-2 border-black rounded-lg px-2 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                            >
+                                <template v-if="STACKS[stack]">
+                                    <component
+                                        :is="STACKS[stack].icon"
+                                        :class="STACKS[stack].color"
+                                        class="w-6 h-6"
+                                    />
+                                </template>
+                                <template v-else>
+                                    {{ stack }}
+                                </template>
+                            </span>
+                        </div>
+
+                        <!-- Action Buttons (Lebar Penuh di Mobile) -->
+                        <div class="flex gap-3 mt-4 pt-4 border-t-2 border-black border-dashed">
+                            <Link
+                                :href="`/projects/${project.project_id}/edit`"
+                                class="flex-1 text-center bg-[#BFDBFE] text-black border-2 border-black rounded-xl px-4 py-2 font-bold text-sm shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
+                            >
+                                Edit
+                            </Link>
+                            <button
+                                @click="destroy(project.project_id)"
+                                class="flex-1 text-center bg-[#FECDD3] text-black border-2 border-black rounded-xl px-4 py-2 font-bold text-sm shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
+                                :disabled="form.processing"
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div v-else class="text-gray-500 text-center mt-6">
-                Belum ada project.
+            <!-- Empty State -->
+            <div v-else class="text-black text-center mt-12 bg-[#FEF08A] rounded-2xl border-2 border-black p-8 font-bold text-lg shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+                Belum ada project yang ditambahkan! ✨
             </div>
+            
         </div>
     </AdminLayout>
 </template>

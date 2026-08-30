@@ -1,9 +1,29 @@
 .box-skill {
   --mask:
-    radial-gradient(41.18px at 50% 56px,#000 99%,#0000 101%) calc(50% - 40px) 0/80px 51% repeat-x,
-    radial-gradient(41.18px at 50% -36px,#0000 99%,#000 101%) 50% 20px/80px calc(51% - 20px) repeat-x,
-    radial-gradient(41.18px at 50% calc(100% - 56px),#000 99%,#0000 101%) calc(50% - 40px) 100%/80px 51% repeat-x,
-    radial-gradient(41.18px at 50% calc(100% + 36px),#0000 99%,#000 101%) 50% calc(100% - 20px)/80px calc(51% - 20px) repeat-x;
+    radial-gradient(41.18px at 50% 56px, #000 99%, #0000 101%) calc(50% - 40px) 0/80px 51% repeat-x,
+    radial-gradient(41.18px at 50% -36px, #0000 99%, #000 101%) 50% 20px/80px calc(51% - 20px) repeat-x,
+    radial-gradient(41.18px at 50% calc(100% - 56px), #000 99%, #0000 101%) calc(50% - 40px) 100%/80px 51% repeat-x,
+    radial-gradient(41.18px at 50% calc(100% + 36px), #0000 99%, #000 101%) 50% calc(100% - 20px)/80px calc(51% - 20px) repeat-x;
   -webkit-mask: var(--mask);
-          mask: var(--mask);
+  mask: var(--mask);
+}
+/* HTML: <div class="ribbon">Your text content</div> */
+
+.ribbon {
+  --r: .4em; /* control the ribbon shape (the radius) */
+  --c: #FA6900;
+
+  position: absolute;
+  left: calc(-1*var(--r));
+  line-height: 1.7; 
+  padding: 0 .5em calc(2*var(--r));
+  border-radius: var(--r) 0 0 var(--r);
+  background: 
+    radial-gradient(100% 50% at left,var(--c) 98%,#0000 101%)
+     100% 0/.5lh calc(100% - 2*var(--r)),
+    radial-gradient(100% 50% at right,#0005 98%,#0000 101%) 
+     0 100%/var(--r) calc(2*var(--r)),
+    conic-gradient(from 90deg at var(--r) calc(100% - 2*var(--r)),#0000 25%,var(--c) 0)
+     0 0/calc(101% - .5lh) 100%;
+  background-repeat: no-repeat;   
 }

@@ -75,39 +75,40 @@ const { element, isVisible, animation } = useScrollReveal(
                     :key="data.projects_id"
                     class="relative flex flex-col mt-10 rounded-xl bg-[#ffffff64] text-gray-700 backdrop-blur-md shadow-lg shadow-blue-gray-500/40"
                 >
-
                     <!-- Gambar -->
                     <div
-                        class="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 group"
+                        class="relative mx-4 -mt-6 rounded-xl bg-blue-gray-500 text-white shadow-lg shadow-blue-gray-500/40 group"
                     >
-                        <img
-                            :src="data.image"
-                            :alt="data.title"
-                            class="object-cover w-full h-48 transition-transform duration-500 group-hover:scale-110"
-                        />
-
-                        <!-- Badge Pin -->
-                        <div
-                            v-if="data.pinned"
-                            class="absolute top-2 left-2 flex items-center gap-1 bg-green-600 text-white text-xs tracking-wide font-medium px-3 py-1 rounded-md shadow"
-                        >
-                            <LuPin class="w-4 h-4" />
-                            <span>Pinned</span>
+                        <!-- Gambar dengan overflow-hidden -->
+                        <div class="overflow-hidden rounded-t-xl">
+                            <img
+                                :src="data.image"
+                                :alt="data.title"
+                                class="object-cover w-full h-48 transition-transform duration-500 group-hover:scale-110"
+                            />
                         </div>
-
-                        <!-- Overlay Detail (muncul saat hover) -->
+                        <!-- Overlay -->
                         <div
-                            class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center text-center p-4"
+                            class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center text-center p-4 z-10"
                         >
                             <a
                                 :href="`/project/${data.slug}`"
-                                class="mt-3 px-4 py-2  text-white text-sm rounded-lg shadow transition"
+                                class="mt-3 px-4 py-2 text-white text-sm rounded-lg shadow transition"
                             >
-                            <div class="flex items-center space-x-2">
-                              <span>View Detail</span>
-                              <LuArrowRight class="w-4 h-4"/> 
-                            </div>
+                                <div class="flex items-center space-x-2">
+                                    <span>View Detail</span>
+                                    <LuArrowRight class="w-4 h-4" />
+                                </div>
                             </a>
+                        </div>
+
+                        <!-- Badge boleh keluar -->
+                        <div
+                            v-if="data.pinned"
+                            class="absolute -top-2 -left-1 flex items-center gap-1 bg-orange-500 text-white text-xs tracking-wide font-medium px-4 py-1 rounded-tl-lg rounded-br-3xl z-10 ribbon w-24"
+                        >
+                            <LuPin class="w-4 h-4" />
+                            <span class="mr-2">Pinned</span>
                         </div>
                     </div>
 
