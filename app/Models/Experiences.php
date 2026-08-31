@@ -11,6 +11,7 @@ class Experiences extends Model
         'position',
         'start_date',
         'end_date',
+        'location',
         'description',
         'company_logo',
     ];

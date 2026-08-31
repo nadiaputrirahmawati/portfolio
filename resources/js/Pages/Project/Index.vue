@@ -2,9 +2,10 @@
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { Link, useForm } from "@inertiajs/vue3";
 import { STACKS } from "@/constants/stack";
+import Pagination from "@/Components/Pagination.vue";
 
 const props = defineProps({
-    projects: Array,
+    projects: Object,
 });
 
 const form = useForm({});
@@ -35,10 +36,10 @@ const destroy = (id) => {
                 </Link>
             </div>
 
-            <div v-if="projects.length > 0">
-                <!-- ============================================== -->
-                <!-- TAMPILAN DESKTOP (TABEL) - Sembunyi di Mobile  -->
-                <!-- ============================================== -->
+            <!-- PERBAIKAN 1: Tambahkan .data -->
+            <div v-if="projects.data.length > 0">
+                
+                <!-- Desktop Table -->
                 <div class="hidden md:block overflow-x-auto bg-white border-2 border-black rounded-2xl shadow-[6px_6px_0px_rgba(0,0,0,1)]">
                     <table class="w-full whitespace-nowrap">
                         <thead>
@@ -51,8 +52,9 @@ const destroy = (id) => {
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- PERBAIKAN 2: Tambahkan .data -->
                             <tr
-                                v-for="project in projects"
+                                v-for="project in projects.data"
                                 :key="project.project_id"
                                 class="border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors"
                             >
@@ -124,8 +126,9 @@ const destroy = (id) => {
                 <!-- TAMPILAN MOBILE (KARTU) - Sembunyi di Desktop  -->
                 <!-- ============================================== -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
+                    <!-- PERBAIKAN 3: Tambahkan .data -->
                     <div 
-                        v-for="project in projects" 
+                        v-for="project in projects.data" 
                         :key="project.project_id"
                         class="bg-white border-2 border-black rounded-2xl p-5 shadow-[6px_6px_0px_rgba(0,0,0,1)] flex flex-col gap-4"
                     >
@@ -169,7 +172,7 @@ const destroy = (id) => {
                             </span>
                         </div>
 
-                        <!-- Action Buttons (Lebar Penuh di Mobile) -->
+                        <!-- Action Buttons -->
                         <div class="flex gap-3 mt-4 pt-4 border-t-2 border-black border-dashed">
                             <Link
                                 :href="`/projects/${project.project_id}/edit`"
@@ -187,9 +190,11 @@ const destroy = (id) => {
                         </div>
                     </div>
                 </div>
+                
+                <!-- PERBAIKAN 4: Ganti experiences menjadi projects -->
+                <Pagination class="mt-6" :links="projects.links" />
             </div>
 
-            <!-- Empty State -->
             <div v-else class="text-black text-center mt-12 bg-[#FEF08A] rounded-2xl border-2 border-black p-8 font-bold text-lg shadow-[6px_6px_0px_rgba(0,0,0,1)]">
                 Belum ada project yang ditambahkan! ✨
             </div>

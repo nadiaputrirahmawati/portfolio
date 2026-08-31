@@ -49,10 +49,10 @@ const isMobileMenuOpen = ref(false); // State untuk mengatur menu mobile
                     </div>
                 </Link>
                 <Link
-                    href="/carir"
+                    href="/experiences"
                     class="px-5 py-2 rounded-full border-2 border-black font-semibold transition-all duration-200"
                     :class="
-                        page.url.startsWith('/carir')
+                        page.url.startsWith('/experiences')
                             ? 'bg-[#FDE047] text-black shadow-[3px_3px_0px_rgba(0,0,0,1)] -translate-y-[2px]'
                             : 'bg-white text-black hover:shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:-translate-y-[2px]'
                     "
@@ -119,17 +119,17 @@ const isMobileMenuOpen = ref(false); // State untuk mengatur menu mobile
                 </div>
             </Link>
             <Link
-                href="/carir"
+                href="/experiences"
                 class="flex w-full px-5 py-3 rounded-xl border-2 border-black font-semibold transition-all duration-200"
                 :class="
-                    page.url.startsWith('/carir')
+                    page.url.startsWith('/experiences')
                         ? 'bg-[#FDE047] text-black shadow-[3px_3px_0px_rgba(0,0,0,1)]'
                         : 'bg-white text-black'
                 "
             >
                 <div class="flex items-center space-x-2">
                     <BsReverseLayoutTextWindowReverse class="w-4 h-4" />
-                    <span>Pengalaman</span>
+                    <span>Experience</span>
                 </div>
             </Link>
         </div>
