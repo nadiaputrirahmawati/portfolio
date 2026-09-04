@@ -65,10 +65,24 @@ class PortfolioController extends Controller
             'success' => true,
             'message' => 'Semua data portofolio berhasil diambil',
             'data'    => [
-                'projects'     => Project::where('status', 'active')->orderBy('created_at', 'desc')->get(),
+                'projects'     =>  $project = Project::where('status', 'active')
+                    ->orderBy('pinned', 'desc') 
+                    ->orderBy('created_at', 'desc')
+                    ->get(),
                 'experiences'  => Experiences::orderBy('start_date', 'desc')->get(),
                 'achievements' => Achievements::orderBy('created_at', 'desc')->get(),
             ]
+        ], 200);
+    }
+
+    public function detailData(Request $request)
+    {
+        $id = $request->slug;
+        $projects = Project::where('slug', $id)->first();
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Projects berhasil diambil',
+            'data'    => $projects
         ], 200);
     }
 }

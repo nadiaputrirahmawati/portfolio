@@ -10,3 +10,5 @@ Route::get('/achievements', [PortfolioController::class, 'achievements']);
 
 // Route all-in-one (opsional tapi sangat disarankan)
 Route::get('/portfolio-data', [PortfolioController::class, 'allData']);
+
+Route::get('/project/{slug}', [PortfolioController::class, 'detailData']);
