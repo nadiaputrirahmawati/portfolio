@@ -14,7 +14,8 @@ class AchievementsController extends Controller
      */
     public function index()
     {
-        $achievements = Achievements::all();
+        $achievements = Achievements::orderBy('created_at', 'desc')->paginate(10);
+        // dd($achievements);
         return Inertia::render('Achievements/index', [
             'achievements' => $achievements
         ]);

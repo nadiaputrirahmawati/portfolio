@@ -14,7 +14,7 @@ class ExperiencesController extends Controller
      */
     public function index()
     {
-        $experiences = Experiences::orderBy('start_date', 'desc')->paginate(1);
+        $experiences = Experiences::orderBy('start_date', 'desc')->paginate(10);
         return Inertia::render('experiences/index', [
             'experiences' => $experiences
         ]);
