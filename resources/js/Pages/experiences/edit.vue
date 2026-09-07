@@ -19,6 +19,7 @@ const form = useForm({
     start_date: props.experience.start_date || "",
     end_date: props.experience.end_date || "",
     description: props.experience.description || "",
+    work_model: props.experience.work_model || "",
     company_logo: props.experience.company_logo || "", // Bisa berisi teks atau path URL dari DB
 });
 
@@ -147,14 +148,25 @@ const submit = () => {
                         </div>
                     </div>
 
-                    <!-- Lokasi -->
-                    <div class="flex flex-col gap-2">
-                        <label class="font-bold text-gray-800">Lokasi</label>
-                        <input 
-                            v-model="form.location" 
-                            type="text" 
-                            class="px-4 py-3 rounded-xl border-2 border-black focus:outline-none focus:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all font-semibold"
-                        />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Work Model (Remote / Onsite) -->
+                        <div class="flex flex-col gap-2">
+                            <label class="font-bold text-gray-800">Tipe Pekerjaan <small>(Onsite / Remote)</small></label>
+                            <input 
+                                v-model="form.work_model" 
+                                type="text" 
+                                class="px-4 py-3 rounded-xl border-2 border-black focus:outline-none focus:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all font-semibold"
+                            />
+                        </div>
+                        <!-- Lokasi -->
+                        <div class="flex flex-col gap-2">
+                            <label class="font-bold text-gray-800">Lokasi</label>
+                            <input 
+                                v-model="form.location" 
+                                type="text" 
+                                class="px-4 py-3 rounded-xl border-2 border-black focus:outline-none focus:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all font-semibold"
+                            />
+                        </div>
                     </div>
 
                     <!-- Tanggal (Tanpa is_current) -->

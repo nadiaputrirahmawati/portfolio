@@ -40,6 +40,7 @@ const destroy = (id) => {
                         <tr class="bg-[#F8F9FA] text-gray-800 text-sm border-b-2 border-black">
                             <th class="p-4 font-bold text-left">Perusahaan & Posisi</th>
                             <th class="p-4 font-bold text-left">Durasi</th>
+                            <th class="p-4 font-bold text-left">Model Kerja</th>
                             <th class="p-4 font-bold text-left">Lokasi</th>
                             <th class="p-4 font-bold text-left">Action</th>
                         </tr>
@@ -59,6 +60,12 @@ const destroy = (id) => {
                             <td class="p-4">
                                 <span class="px-3 py-1 text-xs font-bold rounded-full border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] bg-[#E9D5FF] text-black">
                                     {{ exp.start_date }} - {{ exp.end_date ? exp.end_date : 'Sekarang' }}
+                                </span>
+                            </td>
+
+                            <td class="p-4 font-semibold text-gray-700">
+                                <span :class="{ 'text-red-500 text-sm italic': !exp.work_model }">
+                                    {{ exp.work_model || 'Tidak diisi' }}
                                 </span>
                             </td>
 

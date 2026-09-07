@@ -13,6 +13,7 @@ class Experiences extends Model
         'end_date',
         'location',
         'description',
+        'work_model',
         'company_logo',
     ];
 }

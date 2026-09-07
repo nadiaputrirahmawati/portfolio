@@ -40,6 +40,7 @@ class ExperiencesController extends Controller
             'location'     => 'nullable|string|max:255',
             'start_date'   => 'required|date',
             'end_date'     => 'nullable|date|after_or_equal:start_date',
+            'work_model'   => 'nullable|string|max:255',
             'description'  => 'nullable|string',
         ];
 
@@ -92,6 +93,7 @@ class ExperiencesController extends Controller
             'location'     => 'nullable|string|max:255',
             'start_date'   => 'required|date',
             'end_date'     => 'nullable|date|after_or_equal:start_date',
+            'work_model'   => 'nullable|string|max:255',
             'description'  => 'nullable|string',
         ];
 

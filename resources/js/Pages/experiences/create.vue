@@ -14,6 +14,7 @@ const form = useForm({
     start_date: "",
     end_date: "", // is_current sudah dihapus
     description: "",
+    work_model: "",
     company_logo: null,
 });
 
@@ -40,7 +41,7 @@ const submit = () => {
 
 <template>
     <AdminLayout>
-        <div class="p-6 md:p-8 bg-[#FDF8F5] min-h-screen font-sans flex justify-center">
+        <div class="p-6 md:p-8 min-h-screen font-sans flex justify-center">
             
             <div class="w-full max-w-4xl bg-white border-2 border-black rounded-3xl p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)]">
                 
@@ -134,15 +135,28 @@ const submit = () => {
                         </div>
                     </div>
 
-                    <!-- Lokasi -->
-                    <div class="flex flex-col gap-2">
-                        <label class="font-bold text-gray-800">Lokasi</label>
-                        <input 
-                            v-model="form.location" 
-                            type="text" 
-                            class="px-4 py-3 rounded-xl border-2 border-black focus:outline-none focus:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all font-semibold"
-                            placeholder="Contoh: Jakarta, Indonesia (Remote)"
-                        />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Work Model (Remote / Onsite) -->
+                        <div class="flex flex-col gap-2">
+                            <label class="font-bold text-gray-800">Tipe Pekerjaan <small>(Onsite / Remote)</small></label>
+                            <input 
+                                v-model="form.work_model" 
+                                type="text" 
+                                class="px-4 py-3 rounded-xl border-2 border-black focus:outline-none focus:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all font-semibold"
+                                placeholder="Contoh: Remote / Onsite"
+                            />
+                        </div>
+
+                        <!-- Lokasi -->
+                        <div class="flex flex-col gap-2">
+                            <label class="font-bold text-gray-800">Lokasi</label>
+                            <input 
+                                v-model="form.location" 
+                                type="text" 
+                                class="px-4 py-3 rounded-xl border-2 border-black focus:outline-none focus:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all font-semibold"
+                                placeholder="Contoh: Jakarta, Indonesia (Remote)"
+                            />
+                        </div>
                     </div>
 
                     <!-- Tanggal (Tanpa is_current) -->

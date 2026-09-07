@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('position');
             $table->text('description');
             $table->string('location')->nullable();
+            $table->string('work_model')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->string('company_logo')->nullable();            

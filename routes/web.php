@@ -16,7 +16,7 @@ use Inertia\Inertia;
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
 Route::get('/project/{slug}', [PortfolioController::class, 'detail']);
 
-Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 // Route::get('/project', [ProjectController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('project');
 
 Route::middleware('auth')->group(function () {

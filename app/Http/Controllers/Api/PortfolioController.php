@@ -32,7 +32,11 @@ class PortfolioController extends Controller
      */
     public function experiences()
     {
-        $experiences = Experiences::orderBy('start_date', 'desc')->get();
+        $experiences = Experiences::select('id', 'company_name', 'position', 'location', 'start_date', 'end_date', 'work_model', 'description', 'company_logo')->orderBy('start_date', 'desc')->get()
+        ->map(function ($exp) {
+            $exp->is_current = is_null($exp->end_date);
+            return $exp;
+        });
 
         return response()->json([
             'success' => true,
