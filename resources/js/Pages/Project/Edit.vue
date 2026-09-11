@@ -5,7 +5,7 @@ import AdminLayout from "@/Layouts/AdminLayout.vue";
 import Editor from "@tinymce/tinymce-vue";
 
 // Import STACKS dari folder contacts
-import { STACKS } from "@/contacts/stack";
+import { STACKS } from "@/constants/stack";
 
 const props = defineProps({
     project: Object,
