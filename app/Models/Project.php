@@ -19,11 +19,13 @@ class Project extends Model
         'skill',
         'status',
         'pinned',
-        'slug'
+        'slug',
+        'gallery'
     ];
 
     protected $casts = [
         'skill' => 'array', // agar json skill bisa otomatis jadi array
         'pinned' => 'boolean',
+        'gallery' => 'array'
     ];
 }

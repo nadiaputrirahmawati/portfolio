@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('project_id');
             $table->string('title');
             $table->text('description');
+            $table->json('gallery')->nullable()->after('image');
             $table->string('image');
             $table->string('link');
             $table->string('code');

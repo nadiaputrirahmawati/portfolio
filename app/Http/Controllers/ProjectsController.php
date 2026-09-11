@@ -40,6 +40,8 @@ class ProjectsController extends Controller
             'description' => 'required|string', // hapus max:255 karena markdown bisa panjang
             'image'       => 'required|file|mimes:jpg,jpeg,png|max:2048',
             'link'        => 'required|string',
+            'gallery'     => 'nullable|array',
+            'gallery.*'   => 'nullable|string',
             'code'        => 'required|string',
             'skill'       => 'required|array',
             'status'      => 'required|in:active,inactive',
@@ -47,13 +49,16 @@ class ProjectsController extends Controller
         ]);
 
         // Upload file ke Cloudinary
-        $path = $request->file('image')->store('project', 'public');
         $validated['projects_id'] = rand(1, 100);
         $validated['slug'] = Str::slug($validated['title']);
 
-
-        // Simpan path URL-nya
-        $validated['image'] = 'storage/' . $path;
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('project', 'public');
+            $validated['image'] = 'storage/' . $path;
+        } else {
+            // Jika teks/URL langsung simpan string-nya
+            $validated['image'] = $request->input('image');
+        }
 
         // Simpan ke database
         Project::create($validated);
@@ -128,8 +133,10 @@ class ProjectsController extends Controller
         $validated = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
-            'image'       => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
+            'image'       => 'nullable',
             'link'        => 'required|string',
+            'gallery'     => 'nullable|array',
+            'gallery.*'   => 'nullable|string',
             'code'        => 'required|string',
             'pinned'      => 'required|boolean',
             'skill'       => 'required|array',
@@ -151,6 +158,8 @@ class ProjectsController extends Controller
             if ($project->image && file_exists(public_path($project->image))) {
                 @unlink(public_path($project->image));
             }
+        } elseif ($request->filled('image')) {
+            $validated['image'] = $request->input('image');
         } else {
             $validated['image'] = $project->image;
         }
